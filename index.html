@@ -2,7 +2,8 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0" />
     <title>Airbnb web clone coding</title>
     <style>
         body {
@@ -86,7 +87,7 @@
             display: flex;
             width: 100%;
             max-width: 85vw;
-            height: 34px;
+            height: 40px;
             border-radius: 999px;
             gap: 12px;
             padding: 10px 20px;
@@ -96,13 +97,12 @@
             box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.24);
             align-items: center;
             justify-content: space-between;
-            padding-left: 32px;
+            padding-left: 40px;
         }
 
         .search-bar div {
             display: flex;
             flex-direction: column;
-            padding: 0 20px;
         }
 
         .search-bar div p {
@@ -111,7 +111,7 @@
             font-weight: bold;
         }
 
-            .search-bar div span {
+        .search-bar div span {
             font-size: 12px;
             color: #888;
         }
@@ -123,6 +123,10 @@
             border-radius: 50%;
             padding: 10px;
             cursor: pointer;
+        }
+
+        .solid {
+            border: 1px solid rgba(128, 128, 128, 0.133);
         }
 
         /* .search-bar-icon {
@@ -151,23 +155,34 @@
 
         .nav-icons {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             overflow-x: auto;
         }
 
         .nav-icon {
-            width: 36px;
-            height: 36px;
+            display: flex;
+            width: 32px;
+            height: 32px;
+            justify-content: center;
+            align-items: center;
             background-color: transparent;
+            padding: 0 0 10px 0;
         }
 
         .nav-icon-container {
-            width: 80px;
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 1px;
             align-items: center;
             text-align: center;
+            color: #c5c5c5;
+            padding: 10px 0;
+        }
+
+        .nav-icon-container:hover {
+            color: #1f1f1f;
+            font-weight: 700;
+            transition: 1s ease;
         }
 
         .nav-icon-container span {
@@ -183,40 +198,47 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .card {
-            justify-content: center;
+            flex: 1 1 1;
             max-width: 500px;
-            /* display: flex;
+            display: flex;
             flex-direction: column;
-            flex: 1; */
             border-radius: 8px;
             overflow: hidden;
             gap: 16px;
         }
 
-        .card-description {
+        .card img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-text-container {
             display: flex;
             flex-direction: column;
             margin: 10px 0 40px 0;
             gap: 4px;
         }
 
-        .card-description span {
+        .card-text-container span {
             color: #999;
             font-weight: 700;
             font-size: 18px;
         }
 
-        .card img {
-            width: 100%;
-            object-fit: cover;
-    
-        }
+        @media screen and (min-width: 1200px) {
+            .card {
+                display: flex;
+                flex: 1 1 calc(33.33% - 20px);
+            }
 
-        .card-description span {
-            color: #999;
+            .card-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
         }
 
     </style>
@@ -242,6 +264,7 @@
                 </button>
             </div>
         </div>
+
 
         <div class="search-bar">
             <div>
@@ -277,6 +300,8 @@
                 </div>
             </div> -->
         </div>
+
+        <div class="solid"></div>
 
         <nav class="nav-icons">
             <div class="nav-icon-container">
@@ -340,6 +365,19 @@
         </nav>
 
         <div class="card-container">
+            <div class="card-item">
+                <div class="card">
+                    <img src="https://placehold.co/600x500" alt="room1" />
+                    <div class="card-text-container">
+                        <p>프린스의'퍼플 레인'하우스</p>
+                        <span>호스트: 웬디 님과 리사 님</span>
+                        <p>9월부터 예약 가능</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-item">
             <div class="card">
                 <img src="https://placehold.co/600x500" alt="room1" />
                 <div class="card-description">
@@ -348,7 +386,9 @@
                     <p>9월부터 예약 가능</p>
                 </div>
             </div>
+        </div>
 
+        <div class="card-item">
             <div class="card">
                 <img src="https://placehold.co/600x500" alt="room1" />
                 <div class="card-description">
@@ -357,7 +397,9 @@
                     <p>9월부터 예약 가능</p>
                 </div>
             </div>
+        </div>
 
+        <div class="card-item">
             <div class="card">
                 <img src="https://placehold.co/600x500" alt="room1" />
                 <div class="card-description">
@@ -366,7 +408,42 @@
                     <p>9월부터 예약 가능</p>
                 </div>
             </div>
+        </div>
 
+        <div class="card-item">
+            <div class="card">
+                <img src="https://placehold.co/600x500" alt="room1" />
+                <div class="card-description">
+                    <p>프린스의'퍼플 레인'하우스</p>
+                    <span>호스트: 웬디 님과 리사 님</span>
+                    <p>9월부터 예약 가능</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-item">
+            <div class="card">
+                <img src="https://placehold.co/600x500" alt="room1" />
+                <div class="card-description">
+                    <p>프린스의'퍼플 레인'하우스</p>
+                    <span>호스트: 웬디 님과 리사 님</span>
+                    <p>9월부터 예약 가능</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-item">
+            <div class="card">
+                <img src="https://placehold.co/600x500" alt="room1" />
+                <div class="card-description">
+                    <p>프린스의'퍼플 레인'하우스</p>
+                    <span>호스트: 웬디 님과 리사 님</span>
+                    <p>9월부터 예약 가능</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-item">
             <div class="card">
                 <img src="https://placehold.co/600x500" alt="room1" />
                 <div class="card-description">
